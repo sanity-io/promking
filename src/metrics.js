@@ -25,4 +25,6 @@ function observe(start, options) {
   metrics.total.inc(options, 1)
 }
 
-module.exports = {observe, summary: client.register.metrics}
+const summary = client.register.metrics
+
+module.exports = {observe, summary}
