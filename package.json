@@ -1,0 +1,40 @@
+{
+  "name": "promking",
+  "version": "0.0.1",
+  "description": "Middleware for express & hapi, automatically instrumenting node applications for prometheus",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "test": "mocha test/**/*.test.js",
+    "posttest": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanity-io/promking.git"
+  },
+  "keywords": [
+    "prometheus",
+    "metrics",
+    "express",
+    "hapi"
+  ],
+  "author": "Sanity.io <hello@sanity.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sanity-io/promking/issues"
+  },
+  "homepage": "https://github.com/sanity-io/promking#readme",
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-sanity": "^2.0.1",
+    "express": "^4.14.0",
+    "hapi": "^16.0.1",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1"
+  },
+  "dependencies": {
+    "prom-client": "^6.3.0"
+  }
+}
