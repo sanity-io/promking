@@ -5,7 +5,7 @@ Prometheus HTTP instrumentation for Express/Hapi. Attempts to mimic the official
 ## Installation
 
 ```
-npm install promking
+npm install --save promking
 ```
 
 ## Usage (express)
