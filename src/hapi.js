@@ -3,14 +3,6 @@ const metrics = require('./metrics')
 
 const plugin = {
   register(server, options, next) {
-    server.route({
-      method: 'GET',
-      path: options.url || '/metrics',
-      handler: (req, reply) => {
-        reply(metrics.summary()).type('text/plain')
-      }
-    })
-
     server.ext('onRequest', (request, reply) => {
       request.promking = {start: process.hrtime()}
       return reply.continue()
