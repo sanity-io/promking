@@ -26,7 +26,10 @@ describe('promking', () => {
 
   it('should be able to mount express middleware', done => {
     const app = express()
-    app.use(promking.express())
+    app.use(promking.express(app))
+
+    assert(app.locals.prometheus, 'server should expose prometheus client')
+
     app.get('/', (req, res) => res.send('Hello world'))
 
     request(app).get('/').expect('Hello world', () => {
@@ -41,6 +44,9 @@ describe('promking', () => {
     const server = new Hapi.Server()
     server.connection({port: 34876})
     server.register(promking.hapi())
+
+    assert(server.prometheus, 'server should expose prometheus client')
+
     server.route({method: 'GET', path: '/', handler: (req, reply) => reply('Hello world')})
 
     server.inject('/')
