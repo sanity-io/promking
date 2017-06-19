@@ -36,6 +36,6 @@
   },
   "dependencies": {
     "got": "^7.0.0",
-    "prom-client": "^8.0.0"
+    "prom-client": "^9.1.1"
   }
 }

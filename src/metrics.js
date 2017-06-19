@@ -1,17 +1,17 @@
 const client = require('prom-client')
 
 const metrics = {
-  duration: new client.Summary(
-    'http_request_duration_microseconds',
-    'The HTTP request latencies in microseconds.',
-    ['route'],
-    {percentiles: [0.5, 0.9, 0.99]}
-  ),
-  total: new client.Counter(
-    'http_requests_total',
-    'Total number of HTTP requests made.',
-    ['code', 'method', 'route']
-  )
+  duration: new client.Summary({
+    name: 'http_request_duration_microseconds',
+    help: 'The HTTP request latencies in microseconds.',
+    labelNames: ['route'],
+    percentiles: [0.5, 0.9, 0.99]
+  }),
+  total: new client.Counter({
+    name: 'http_requests_total',
+    help: 'Total number of HTTP requests made.',
+    labelNames: ['code', 'method', 'route']
+  })
 }
 
 function us(start) {
@@ -25,6 +25,6 @@ function observe(start, options) {
   metrics.total.inc(options, 1)
 }
 
-const summary = client.register.metrics
+const summary = () => client.register.metrics()
 
 module.exports = {observe, summary}
