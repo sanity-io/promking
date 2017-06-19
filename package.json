@@ -27,15 +27,15 @@
   },
   "homepage": "https://github.com/sanity-io/promking#readme",
   "devDependencies": {
-    "eslint": "^3.12.2",
-    "eslint-config-sanity": "^2.0.1",
-    "express": "^4.14.0",
-    "hapi": "^16.0.1",
-    "mocha": "^3.2.0",
-    "supertest": "^2.0.1"
+    "eslint": "^4.0.0",
+    "eslint-config-sanity": "^2.1.4",
+    "express": "^4.15.3",
+    "hapi": "^16.4.3",
+    "mocha": "^3.4.2",
+    "supertest": "^3.0.0"
   },
   "dependencies": {
-    "got": "^6.6.3",
-    "prom-client": "^6.3.0"
+    "got": "^7.0.0",
+    "prom-client": "^8.0.0"
   }
 }
