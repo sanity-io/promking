@@ -1,6 +1,6 @@
 {
   "name": "promking",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Middleware for express & hapi, automatically instrumenting node applications for prometheus",
   "main": "src/index.js",
   "engines": {
