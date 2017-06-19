@@ -14,8 +14,11 @@ function middleware(req, res, next) {
   return next()
 }
 
-module.exports = (app) => {
+module.exports = app => {
   // Expose prometheus interface as Express app.locals method
-  if (app) { app.locals.prometheus = client }
+  if (app) {
+    app.locals.prometheus = client
+  }
+
   return middleware
 }
