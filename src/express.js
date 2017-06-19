@@ -1,4 +1,5 @@
 const metrics = require('./metrics')
+const client = require('prom-client')
 
 function middleware(req, res, next) {
   const start = process.hrtime()
@@ -13,4 +14,8 @@ function middleware(req, res, next) {
   return next()
 }
 
-module.exports = () => middleware
+module.exports = (app) => {
+  // Expose prometheus interface as Express app.locals method
+  if (app) { app.locals.prometheus = client }
+  return middleware
+}

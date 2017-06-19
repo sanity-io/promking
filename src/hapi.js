@@ -1,5 +1,6 @@
 const pkg = require('../package.json')
 const metrics = require('./metrics')
+const client = require('prom-client')
 
 const plugin = {
   register(server, options, next) {
@@ -15,6 +16,10 @@ const plugin = {
         method: req.method.toLowerCase()
       })
     })
+
+
+    // Expose prometheus interface as hapi server method
+    server.decorate('server', 'prometheus', client)
 
     return next()
   }
